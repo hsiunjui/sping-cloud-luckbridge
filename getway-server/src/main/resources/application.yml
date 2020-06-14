@@ -1,0 +1,26 @@
+server:
+  port: 9600
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8800/eureka
+
+spring:
+  application:
+    name: getway
+
+zuul:
+  sensitive-headers: #过滤客户端附带的headers
+  routes:
+    zuul-provide: # 自定义,保证唯一
+      path: /serve/** # 浏览器真实的额访问路径
+      service-id: producer
+    zuul-consumer:
+      path: /client/**
+      service-id: consumer
+  host:
+    connect-timeout-millis: 15000 #HTTP连接超时要比Hystrix的大
+    socket-timeout-millis: 60000 # socket超时
+#  prefix: /api
+

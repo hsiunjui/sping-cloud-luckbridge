@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    config:
+      name: producer
+      profile: dev
+#      uri: http://localhost:8888/
+      label: master
+      discovery:
+        service-id: config-server

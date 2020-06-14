@@ -1,0 +1,15 @@
+server:
+  port: 8800
+
+spring:
+  application:
+    name: register-server
+
+eureka:
+  server:
+#    enableSelfPreservation: false 页面警告
+  client:
+    register-with-eureka: false # 将自己注册到 Eureka Server
+    fetch-registry: false # 获取Eureka注册信息
+#    service-url:
+#      defualtZone: http://localhost:8800/eureka
